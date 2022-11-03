@@ -21,7 +21,7 @@ product(surfacebook, microsoft, laptop, 1200, 3.5).
 
 product(samsung_tv, samsung, tv, 1500, 4).
 
-product(three_ft_hdmi_cable, cable_guys, cable, 10, 4.5).
+product(three_ft_hdmi_cable, rocketfish, cable, 10, 4.5).
 
 product(dell_monitor, dell, monitor, 500, 4.3).
 product(samsung_monitor, samsung, monitor, 600, 3.7).
@@ -100,6 +100,39 @@ canShip(apple_pro_display, mississauga).
 
 %%%%% LEXICON
 % Add the lexicon to this section
+
+article(a).
+article(an).
+article(any).
+article(the).
+
+common_noun(laptop).
+common_noun(stock).
+common_noun(rating).
+common_noun(tablet).
+common_noun(hdmi_cable).
+common_noun(city).
+common_noun(monitor).
+
+preposition(in).
+preposition(at).
+preposition(that_can_ship_to).
+preposition(with).
+
+proper_noun(toronto).
+proper_noun(mississauga).
+proper_noun(montreal).
+proper_noun(square_one_computer_shack).
+proper_noun(eaton_centre_computer_shack).
+
+adjective(apple).
+adjective(rocketfish).
+adjective(rated).
+adjective(highly_rated).
+adjective(medium_rated).
+adjective(lowly_rated).
+adjective(expensive).
+adjective(cheapest).
 
 
 %%%%% EXTRA LANGUAGE FEATURES
