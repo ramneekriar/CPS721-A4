@@ -2,8 +2,8 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Karanvir Heer
+%%%%% NAME: Ramneek Riar
+%%%%% NAME: Shruti Sharma
 %
 % Add your interaction below

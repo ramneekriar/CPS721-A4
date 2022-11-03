@@ -2,9 +2,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Karanvir Heer
+%%%%% NAME: Ramneek Riar
+%%%%% NAME: Shruti Sharma
 %
 % Add your test queries below. Ensure that the line before each query describes the query in plain
 % English.For example, if you want to add the query "pred(X, constant).", it should appear as follows:
