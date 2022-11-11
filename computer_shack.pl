@@ -123,6 +123,8 @@ common_noun(city, C) :- canShip(_, C).
 common_noun(store, S) :- inStock(_, S, _).
 common_noun(store, S) :- location(S, _).
 
+preposition(in_the_stock, P, Store) :- inStock(P,Store,_).
+preposition(in_the_stock, Store, City) :- location(Store, City).
 
 preposition(in, P, Store) :- inStock(P,Store,_).
 preposition(in, Store, City) :- location(Store, City).
