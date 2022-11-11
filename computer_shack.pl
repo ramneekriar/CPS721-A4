@@ -267,9 +267,12 @@ np2([Noun|Rest], What) :- common_noun(Noun, What), mods(Rest,What).
    additional modifiers.  */
 
 mods([], _).
+mods([in, the, stock | Rest], What) :- mods(Rest, What).
+mods([in, stock | Rest], What) :- mods(Rest, What).
 mods(Words, What) :-
-	appendLists(Start, End, Words),
-	prepPhrase(Start, What),	mods(End, What).
+    not Words = [in, the, stock | _], not Words = [in, stock | _],
+    appendLists(Start, End, Words),
+    prepPhrase(Start, What),    mods(End, What).
 
 prepPhrase([Prep|Rest], What) :-
 	preposition(Prep, What, Ref), np(Rest, Ref).
