@@ -106,17 +106,23 @@ article(an).
 article(any).
 article(the).
 
-common_noun(laptop).
-common_noun(stock).
-common_noun(rating).
-common_noun(tablet).
-common_noun(hdmi_cable).
-common_noun(city).
-common_noun(monitor).
+common_noun(laptop, PN, M, T, P, R) :- product(PN, M, laptop, P, R).
+common_noun(tablet, PN, M, T, P, R) :- product(PN, M, tablet, P, R).
+common_noun(hdmi_cable, PN, M, T, P, R) :- product(PN, M, hdmi_cable, P, R).
+common_noun(hdmi_cord, PN, M, T, P, R) :- product(PN, M, hdmi_cord, P, R).
+common_noun(monitor, PN, M, T, P, R) :- product(PN, M, monitor, P, R).
+common_noun(tv, PN, M, T, P, R) :- product(PN, M, tv, P, R).
+common_noun(three_ft_hdmi_cable, PN, M, T, P, R) :- product(PN, M, three_ft_hdmi_cable, P, R).
+common_noun(cable, PN, M, T, P, R) :- product(PN, M, cable, P, R).
+common_noun(stock, PN, M, T, SN, C) :- inStock(PN, SN, C).
+common_noun(rating, PN, M, T, P, R) :- product(PN, M, T, P, R).
+common_noun(price, PN, M, T, P, R) :- product(PN, M, T, P, R).
+common_noun(count, PN, M, T, SN, C) :- inStock(PN, SN, C).
 
 preposition(in).
 preposition(at).
 preposition(that_can_ship_to).
+preposition(in_the_stock).
 preposition(with).
 
 proper_noun(toronto).
@@ -161,9 +167,12 @@ np2([Noun|Rest], What) :- common_noun(Noun, What), mods(Rest,What).
    additional modifiers.  */
 
 mods([], _).
+mods([in, the, stock | Rest], What) :- mods(Rest, What).
+mods([in, stock | Rest], What) :- mods(Rest, What).
 mods(Words, What) :-
-	appendLists(Start, End, Words),
-	prepPhrase(Start, What),	mods(End, What).
+    not Words = [in, the, stock | _], not Words = [in, stock | _],
+    appendLists(Start, End, Words),
+    prepPhrase(Start, What),    mods(End, What).
 
 prepPhrase([Prep|Rest], What) :-
 	preposition(Prep, What, Ref), np(Rest, Ref).
