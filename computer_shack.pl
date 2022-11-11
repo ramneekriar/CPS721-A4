@@ -80,6 +80,7 @@ location(union_computer_shack, toronto).
 
 canShip(macbook_pro, toronto).
 canShip(macbook_pro, mississauga).
+canShip(dell_xps, mississauga).
 
 canShip(dell_xps, brampton).
 
@@ -100,39 +101,6 @@ canShip(apple_pro_display, mississauga).
 
 %%%%% LEXICON
 % Add the lexicon to this section
-
-article(a).
-article(an).
-article(any).
-article(the).
-
-common_noun(laptop).
-common_noun(stock).
-common_noun(rating).
-common_noun(tablet).
-common_noun(hdmi_cable).
-common_noun(city).
-common_noun(monitor).
-
-preposition(in).
-preposition(at).
-preposition(that_can_ship_to).
-preposition(with).
-
-proper_noun(toronto).
-proper_noun(mississauga).
-proper_noun(montreal).
-proper_noun(square_one_computer_shack).
-proper_noun(eaton_centre_computer_shack).
-
-adjective(apple).
-adjective(rocketfish).
-adjective(rated).
-adjective(highly_rated).
-adjective(medium_rated).
-adjective(lowly_rated).
-adjective(expensive).
-adjective(cheapest).
 
 
 %%%%% EXTRA LANGUAGE FEATURES
