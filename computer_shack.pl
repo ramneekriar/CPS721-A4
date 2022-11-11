@@ -102,6 +102,45 @@ canShip(apple_pro_display, mississauga).
 %%%%% LEXICON
 % Add the lexicon to this section
 
+article(a).
+article(an).
+article(any).
+article(the).
+
+common_noun(laptop, PN, M, T, P, R) :- product(PN, M, laptop, P, R).
+common_noun(tablet, PN, M, T, P, R) :- product(PN, M, tablet, P, R).
+common_noun(hdmi_cable, PN, M, T, P, R) :- product(PN, M, hdmi_cable, P, R).
+common_noun(hdmi_cord, PN, M, T, P, R) :- product(PN, M, hdmi_cord, P, R).
+common_noun(monitor, PN, M, T, P, R) :- product(PN, M, monitor, P, R).
+common_noun(tv, PN, M, T, P, R) :- product(PN, M, tv, P, R).
+common_noun(three_ft_hdmi_cable, PN, M, T, P, R) :- product(PN, M, three_ft_hdmi_cable, P, R).
+common_noun(cable, PN, M, T, P, R) :- product(PN, M, cable, P, R).
+common_noun(stock, PN, M, T, SN, C) :- inStock(PN, SN, C).
+common_noun(rating, PN, M, T, P, R) :- product(PN, M, T, P, R).
+common_noun(price, PN, M, T, P, R) :- product(PN, M, T, P, R).
+common_noun(count, PN, M, T, SN, C) :- inStock(PN, SN, C).
+
+preposition(in).
+preposition(at).
+preposition(that_can_ship_to).
+preposition(in_the_stock).
+preposition(with).
+
+proper_noun(toronto).
+proper_noun(mississauga).
+proper_noun(montreal).
+proper_noun(square_one_computer_shack).
+proper_noun(eaton_centre_computer_shack).
+
+adjective(apple).
+adjective(rocketfish).
+adjective(rated).
+adjective(highly_rated).
+adjective(medium_rated).
+adjective(lowly_rated).
+adjective(expensive).
+adjective(cheapest).
+
 
 %%%%% EXTRA LANGUAGE FEATURES
 % Put the extra language features for question 4 in this section
@@ -129,9 +168,12 @@ np2([Noun|Rest], What) :- common_noun(Noun, What), mods(Rest,What).
    additional modifiers.  */
 
 mods([], _).
+mods([in, the, stock | Rest], What) :- mods(Rest, What).
+mods([in, stock | Rest], What) :- mods(Rest, What).
 mods(Words, What) :-
-	appendLists(Start, End, Words),
-	prepPhrase(Start, What),	mods(End, What).
+    not Words = [in, the, stock | _], not Words = [in, stock | _],
+    appendLists(Start, End, Words),
+    prepPhrase(Start, What),    mods(End, What).
 
 prepPhrase([Prep|Rest], What) :-
 	preposition(Prep, What, Ref), np(Rest, Ref).
