@@ -36,81 +36,81 @@ product(amazon_tablet, amazon, tablet, 300, 3.5).
 % inStock(ProductName, StoreName, Count).
 
 inStock(macbook_pro, eaton_centre_computer_shack, 3).
-inStock(macbook_pro, union_computer_shack, 0).
-inStock(macbook_pro, montreal_computer_shack, 0).
-inStock(macbook_pro, brampton_computer_shack, 0).
-inStock(macbook_pro, square_one_computer_shack, 0).
-inStock(macbook_pro, heartland_computer_shack, 0).
+% inStock(macbook_pro, union_computer_shack, 0).
+% inStock(macbook_pro, montreal_computer_shack, 0).
+% inStock(macbook_pro, brampton_computer_shack, 0).
+% inStock(macbook_pro, square_one_computer_shack, 0).
+% inStock(macbook_pro, heartland_computer_shack, 0).
 
 inStock(dell_xps, square_one_computer_shack, 1).
-inStock(dell_xps, eaton_computer_shack, 0).
-inStock(dell_xps, union_computer_shack, 0).
-inStock(dell_xps, montreal_computer_shack, 0).
-inStock(dell_xps, brampton_computer_shack, 0).
-inStock(dell_xps, heartland_computer_shack, 0).
+% inStock(dell_xps, eaton_computer_shack, 0).
+% inStock(dell_xps, union_computer_shack, 0).
+% inStock(dell_xps, montreal_computer_shack, 0).
+% inStock(dell_xps, brampton_computer_shack, 0).
+% inStock(dell_xps, heartland_computer_shack, 0).
 
 inStock(surfacebook, union_computer_shack, 10).
 inStock(surfacebook, eaton_centre_computer_shack, 5).
-inStock(surfacebook, montreal_computer_shack, 0).
-inStock(surfacebook, brampton_computer_shack, 0).
-inStock(surfacebook, square_one_computer_shack, 0).
-inStock(surfacebook, heartland_computer_shack, 0).
+% inStock(surfacebook, montreal_computer_shack, 0).
+% inStock(surfacebook, brampton_computer_shack, 0).
+% inStock(surfacebook, square_one_computer_shack, 0).
+% inStock(surfacebook, heartland_computer_shack, 0).
 
 inStock(samsung_tv, montreal_computer_shack, 10).
-inStock(samsung_tv, union_computer_shack, 0).
-inStock(samsung_tv, eaton_computer_shack, 0).
-inStock(samsung_tv, brampton_computer_shack, 0).
-inStock(samsung_tv, square_one_computer_shack, 0).
-inStock(samsung_tv, heartland_computer_shack, 0).
+% inStock(samsung_tv, union_computer_shack, 0).
+% inStock(samsung_tv, eaton_computer_shack, 0).
+% inStock(samsung_tv, brampton_computer_shack, 0).
+% inStock(samsung_tv, square_one_computer_shack, 0).
+% inStock(samsung_tv, heartland_computer_shack, 0).
 
 inStock(three_ft_hdmi_cable, montreal_computer_shack, 20).
 inStock(three_ft_hdmi_cable, square_one_computer_shack, 2).
-inStock(three_ft_hdmi_cable, heartland_computer_shack, 0).
-inStock(three_ft_hdmi_cable, union_computer_shack, 0).
-inStock(three_ft_hdmi_cable, brampton_computer_shack, 0).
-inStock(three_ft_hdmi_cable, eaton_computer_shack, 0).
+% inStock(three_ft_hdmi_cable, heartland_computer_shack, 0).
+% inStock(three_ft_hdmi_cable, union_computer_shack, 0).
+% inStock(three_ft_hdmi_cable, brampton_computer_shack, 0).
+% inStock(three_ft_hdmi_cable, eaton_computer_shack, 0).
 
 inStock(galaxy_tab_10, eaton_centre_computer_shack, 5).
 inStock(galaxy_tab_10, brampton_computer_shack, 10).
-inStock(galaxy_tab_10, square_one_computer_shack, 0).
-inStock(galaxy_tab_10, montreal_computer_shack, 0).
-inStock(galaxy_tab_10, union_computer_shack, 0).
-inStock(galaxy_tab_10, heartland_computer_shack, 0).
+% inStock(galaxy_tab_10, square_one_computer_shack, 0).
+% inStock(galaxy_tab_10, montreal_computer_shack, 0).
+% inStock(galaxy_tab_10, union_computer_shack, 0).
+% inStock(galaxy_tab_10, heartland_computer_shack, 0).
 
 inStock(ipad_pro, eaton_centre_computer_shack, 20).
 inStock(ipad_pro, square_one_computer_shack, 7).
-inStock(ipad_pro, union_computer_shack, 0).
-inStock(ipad_pro, montreal_computer_shack, 0).
-inStock(ipad_pro, brampton_computer_shack, 0).
-inStock(ipad_pro, heartland_computer_shack, 0).
+% inStock(ipad_pro, union_computer_shack, 0).
+% inStock(ipad_pro, montreal_computer_shack, 0).
+% inStock(ipad_pro, brampton_computer_shack, 0).
+% inStock(ipad_pro, heartland_computer_shack, 0).
 
 inStock(amazon_tablet, eaton_centre_computer_shack, 50).
 inStock(amazon_tablet, brampton_computer_shack, 4).
-inStock(amazon_tablet, montreal_computer_shack, 0).
-inStock(amazon_tablet, union_computer_shack, 0).
-inStock(amazon_tablet, heartland_computer_shack, 0).
-inStock(amazon_tablet, square_one_computer_shack, 0).
+% inStock(amazon_tablet, montreal_computer_shack, 0).
+% inStock(amazon_tablet, union_computer_shack, 0).
+% inStock(amazon_tablet, heartland_computer_shack, 0).
+% inStock(amazon_tablet, square_one_computer_shack, 0).
 
 inStock(dell_monitor, eaton_centre_computer_shack, 1).
 inStock(dell_monitor, brampton_computer_shack, 4).
-inStock(dell_monitor, montreal_computer_shack, 0).
-inStock(dell_monitor, union_computer_shack, 0).
-inStock(dell_monitor, heartland_computer_shack, 0).
-inStock(dell_monitor, square_one_computer_shack, 0).
+% inStock(dell_monitor, montreal_computer_shack, 0).
+% inStock(dell_monitor, union_computer_shack, 0).
+% inStock(dell_monitor, heartland_computer_shack, 0).
+% inStock(dell_monitor, square_one_computer_shack, 0).
 
 inStock(samsung_monitor, square_one_computer_shack, 10).
-inStock(samsung_monitor, eaton_centre_computer_shack, 0).
-inStock(samsung_monitor, brampton_computer_shack, 0).
-inStock(samsung_monitor, montreal_computer_shack, 0).
-inStock(samsung_monitor, union_computer_shack, 0).
-inStock(samsung_monitor, heartland_computer_shack, 0).
+% inStock(samsung_monitor, eaton_centre_computer_shack, 0).
+% inStock(samsung_monitor, brampton_computer_shack, 0).
+% inStock(samsung_monitor, montreal_computer_shack, 0).
+% inStock(samsung_monitor, union_computer_shack, 0).
+% inStock(samsung_monitor, heartland_computer_shack, 0).
 
 inStock(apple_pro_display, eaton_centre_computer_shack, 20).
-inStock(apple_pro_display, brampton_computer_shack, 0).
-inStock(apple_pro_display, montreal_computer_shack, 0).
-inStock(apple_pro_display, union_computer_shack, 0).
-inStock(apple_pro_display, heartland_computer_shack, 0).
-inStock(apple_pro_display, square_one_computer_shack, 0).
+% inStock(apple_pro_display, brampton_computer_shack, 0).
+% inStock(apple_pro_display, montreal_computer_shack, 0).
+% inStock(apple_pro_display, union_computer_shack, 0).
+% inStock(apple_pro_display, heartland_computer_shack, 0).
+% inStock(apple_pro_display, square_one_computer_shack, 0).
 
 %%%%% ATOMIC: location
 % Add the atomic propositions for location in this section
@@ -167,10 +167,9 @@ common_noun(hdmi_cord, P) :- product(P, _, _, _, _).
 common_noun(monitor,  P) :- product(P, _, _, _, _).
 common_noun(tv, P) :- product(P, _, _, _, _).
 common_noun(cable, P) :- product(P, _, _, _, _).
-
+common_noun(stock, C) :- inStock(_, _, C).
 
 % because ratings, stock count, price, city and store_names are proper nouns
-% common_noun(stock, C) :- inStock(_, _, C).
 % common_noun(rating, R) :- product(_, _, _, _, R).
 % common_noun(price, P) :- product(_, _, _, P, _).
 % common_noun(city, C) :- location(_, C).
