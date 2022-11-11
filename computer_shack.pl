@@ -108,20 +108,23 @@ article(any).
 article(the).
 
 
-common_noun(laptop, T) :- product(_, _, T, _, _).
-common_noun(tablet, T) :- product(_, _, T, _, _).
-common_noun(hdmi_cable,  T) :- product(_, _, T, _, _).
-common_noun(hdmi_cord, T) :- product(_, _, T, _, _).
-common_noun(monitor,  T) :- product(_, _, T, _, _).
-common_noun(tv, T) :- product(_, _, T, _, _).
-common_noun(cable, T) :- product(_, _, T, _, _).
-common_noun(stock, C) :- inStock(_, _, C).
-common_noun(rating, R) :- product(_, _, _, _, R).
-common_noun(price, P) :- product(_, _, _, P, _).
-common_noun(city, C) :- location(_, C).
-common_noun(city, C) :- canShip(_, C).
-common_noun(store, S) :- inStock(_, S, _).
-common_noun(store, S) :- location(S, _).
+common_noun(laptop, P) :- product(P, _, _, _, _).
+common_noun(tablet, P) :- product(P, _, _, _, _).
+common_noun(hdmi_cable, P) :- product(P, _, _, _, _).
+common_noun(hdmi_cord, P) :- product(P, _, _, _, _).
+common_noun(monitor,  P) :- product(P, _, _, _, _).
+common_noun(tv, P) :- product(P, _, _, _, _).
+common_noun(cable, P) :- product(P, _, _, _, _).
+
+
+% because ratings, stock count, price, city and store_names are proper nouns
+% common_noun(stock, C) :- inStock(_, _, C).
+% common_noun(rating, R) :- product(_, _, _, _, R).
+% common_noun(price, P) :- product(_, _, _, P, _).
+% common_noun(city, C) :- location(_, C).
+% common_noun(city, C) :- canShip(_, C).
+% common_noun(store, S) :- inStock(_, S, _).
+% common_noun(store, S) :- location(S, _).
 
 preposition(in_the_stock, P, Store) :- inStock(P,Store,_).
 preposition(in_the_stock, Store, City) :- location(Store, City).
