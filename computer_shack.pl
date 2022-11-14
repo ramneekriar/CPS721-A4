@@ -202,7 +202,7 @@ adjective(rocketfish, M) :- product(M, rocketfish, _, _, _).
 
 adjective(expensive, P) :- product(P, _, Type, Price1, _), not (product(P2, _, Type, Price2, _), P = P2, Price is Price1*2, Price < Price2).
 
-adjective(cheapest, P) :- product(P, _, Type, Price1, _), not (product(P2, _, Type, Price2, _), Price2 < Price1).
+adjective(cheapest, P) :- product(P, _, Type, Price1, _), not (product(P2, _, Type, Price2, _), P = P2, Price2 < Price1).
 
 % Added this extra
 adjective(cheapest, Brand, Product) :- product(Product, Brand, Type, Price1, _), not (product(_, Brand, Type, Price2, _), Price2 < Price1).
