@@ -212,6 +212,8 @@ what(Words, Ref) :- np(Words, Ref).
 np([Name],Name) :- proper_noun(Name).
 np([Art|Rest], What) :- article(Art), np2(Rest, What).
 
+% Added this
+np([the|Rest], What) :- np2(Rest, What), not (np2(Rest, Other), not What=Other).
 
 /* If a noun phrase starts with an article, then it must be followed
    by another noun phrase that starts either with an adjective
@@ -238,6 +240,9 @@ mods(Words, What) :-
 
 prepPhrase([Prep|Rest], What) :-
 	preposition(Prep, What, Ref), np(Rest, Ref).
+
+% Added this
+prepPhrase([between, X, and, Y], What) :- number(X), number(Y), preposition(between, X, Y, What, Other).
 
 appendLists([], L, L).
 appendLists([H|L1], L2, [H|L3]) :-  appendLists(L1, L2, L3).
