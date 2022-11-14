@@ -149,6 +149,7 @@ common_noun(store, S) :- location(S, _).
 % ------------------------------------
 preposition(with, Store, P) :- inStock(P, Store, _).
 preposition(with, P, Rating) :- product(P, _, _, _, Rating).
+preposition(with, P, Price) :- product(P, _, _, Price, _).
 
 preposition(that_can_ship_to, P, City) :- canShip(P, City).
 
@@ -166,8 +167,8 @@ preposition(at, P, Store) :- inStock(P,Store,_).
 preposition(at, Count, Store) :- inStock(_, Store, Count).
 preposition(at, P, City) :- inStock(P,Store,_), location(Store,City).
 
-preposition(between, LowerBound, UpperBound, P, P) :- product(P,_,_,Price,_), Price>=LowerBound, P=<UpperBound.
-preposition(between, LowerBound, UpperBound, P, P) :- product(P,_,_,_,R), R>=LowerBound, P=<UpperBound.
+preposition(between, LowerBound, UpperBound, P, P) :- product(P,_,_,Price,_), Price>=LowerBound, Price=<UpperBound.
+preposition(between, LowerBound, UpperBound, P, P) :- product(P,_,_,_,R), R>=LowerBound, R=<UpperBound.
 
 % ------------------------------------
 % ----------- PROPER NOUNS -----------
