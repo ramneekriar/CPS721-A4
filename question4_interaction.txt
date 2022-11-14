@@ -7,3 +7,18 @@
 %%%%% NAME: Shruti Sharma
 %
 % Add your interaction below
+
+% What tablet has a rating between 4.5 and 5?
+QUERY 1: what([a,tablet,with,a,rating,between,4.5,and,5], P).
+
+% What monitor is there that is medium rated and has a price between $500 and $700?
+QUERY 2: what([the, medium_rated, monitor, with, a, price, between, 500, and, 700], P).
+
+% What monitor is there that costs between $500 and $700?
+QUERY 3: what([the, monitor, with, a, cost, between, 500, and, 700], P).
+
+% What tablet is rated between 3 and 4?
+QUERY 4: what([a, tablet, rated, between, 3, and, 4], P).
+
+% What laptop costs between $1000 and $1500?
+QUERY 5: what([any, laptop, with, a, cost, between, 1000, and, 1500], P).

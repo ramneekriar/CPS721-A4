@@ -156,6 +156,7 @@ preposition(with, P, Price) :- product(P, _, _, Price, _).
 preposition(that_can_ship_to, P, City) :- canShip(P, City).
 
 preposition(of, R, P) :- product(P,_,_,_,R).
+preposition(of, Price, P) :- product(P,_,_,Price,_).
 preposition(of, P, Price) :- product(P,_,_,Price,_).
 preposition(of, Count, P) :- inStock(P,_,Count).
 
@@ -185,7 +186,7 @@ proper_noun(N) :- canShip(_,N).
 
 
 % ------------------------------------
-% ----------- ADJECTIVES -----------
+% ----------- ADJECTIVES -------------
 % ------------------------------------
 adjective(rated, P) :- product(P, _, _, _, R).
 adjective(highly_rated, P) :- product(P, _, _, _, R), R >= 4.
