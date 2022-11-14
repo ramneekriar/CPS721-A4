@@ -7,3 +7,130 @@
 %%%%% NAME: Shruti Sharma
 %
 % Add your interaction below
+% Is there a store that has laptops in stock? If yes, retrieve them one-by-one.
+QUERY 1: inStock(ProductName, Store, Count), product(ProductName, _, laptop, _, _), Count > 0.
+ProductName = macbook_pro
+Store = eaton_centre_computer_shack
+Count = 4
+Yes (0.00s cpu, solution 1, maybe more)
+ProductName = macbook_pro
+Store = montreal_computer_shack
+Count = 4
+Yes (0.04s cpu, solution 2, maybe more)
+ProductName = dell_xps
+Store = square_one_computer_shack
+Count = 1
+Yes (0.05s cpu, solution 3, maybe more)
+ProductName = surfacebook
+Store = union_computer_shack
+Count = 10
+Yes (0.05s cpu, solution 4, maybe more)
+ProductName = surfacebook
+Store = eaton_centre_computer_shack
+Count = 5
+Yes (0.06s cpu, solution 5, maybe more)
+No (0.06s cpu)
+
+% Is there a store in Montreal that has a 3ft HDMI cable in stock? (Note that 3ft HDMI cable is the name of the product, not the type).
+QUERY 2: location(StoreName, montreal), inStock(three_ft_hdmi_cable, StoreName, Count), Count > 0.
+StoreName = montreal_computer_shack
+Count = 20
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
+
+% What is the stock of the tablet called Galaxy Tab 10 in the Square One Computer Shack?
+QUERY 3: inStock(galaxy_tab_10, square_one_computer_shack, Stock).
+Stock = 40
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.04s cpu)
+
+% Does any store in Missisauga have a laptop in stock that cannot be shipped to Toronto?
+QUERY 4: product(ProductName, _, laptop, _, _), inStock(ProductName, StoreName, Count), location(StoreName, mississauga), not canShip(ProductName, toronto), Count > 0.
+ProductName = dell_xps
+StoreName = square_one_computer_shack
+Count = 1
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.01s cpu)
+
+% What is the cheapest monitor that can ship to Toronto?
+QUERY 5: product(PN1, _, monitor, Price1, _), canShip(PN1, toronto), not (product(PN2, _, monitor, Price2, _), canShip(PN2, toronto), PN1 = PN2, Price2 > Price1).
+PN1 = samsung_monitor
+Price1 = 600
+PN2 = PN2
+Price2 = Price2
+Yes (0.00s cpu, solution 1, maybe more)
+PN1 = apple_pro_display
+Price1 = 2000
+PN2 = PN2
+Price2 = Price2
+Yes (0.01s cpu, solution 2, maybe more)
+No (0.01s cpu)
+
+% What are the highly rated tablets that the Eaton Centre Computer Shack has in stock?
+QUERY 6: product(ProductName, _, tablet, _, Rating), inStock(ProductName, eaton_centre_computer_shack, Count), Rating >= 4, Count > 0.
+ProductName = galaxy_tab_10
+Rating = 4.1
+Count = 5
+Yes (0.00s cpu, solution 1, maybe more)
+ProductName = ipad_pro
+Rating = 5
+Count = 20
+Yes (0.01s cpu, solution 2, maybe more)
+No (0.01s cpu)
+
+% Is there a laptop that can be bought at at least two different stores in Toronto? If there is, what is its price?
+QUERY 7: product(PN, _, laptop, _, _), inStock(PN, Store1, Count1), location(Store1, toronto), inStock(PN, Store2, Count2), location(Store2, toronto), not Store1 = Store2, Count1 > 0, Count2 > 0.
+PN = surfacebook
+Store1 = union_computer_shack
+Count1 = 10
+Store2 = eaton_centre_computer_shack
+Count2 = 5
+Yes (0.00s cpu, solution 1, maybe more)
+PN = surfacebook
+Store1 = eaton_centre_computer_shack
+Count1 = 5
+Store2 = union_computer_shack
+Count2 = 10
+Yes (0.01s cpu, solution 2, maybe more)
+No (0.01s cpu)
+
+
+% Is there a highly rated tablet that costs less than $600?
+QUERY 8: product(PN, _, tablet, Price, Rating), Price < 600, Rating >= 4.
+PN = galaxy_tab_10
+Price = 400
+Rating = 4.1
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.01s cpu)
+
+% Is there laptop that can both be shipped to Mississauga and is at the Square One Computer
+Shack?
+QUERY 9: product(PN, _, laptop, _, _), inStock(PN, square_one_computer_shack, _), canShip(PN, mississauga).
+PN = dell_xps
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.03s cpu)
+
+% What is the cheapest highly rated tablet that I can get shipped?
+QUERY 10: product(PN1, _, tablet, Price1, Rating1), canShip(PN1, _), Rating1 >=4, not (product(PN2, _, tablet, Price2, Rating2), canShip(PN2, _), Rating1 = Rating2, PN1 = PN2, Price2 < Price1, not Rating2 >= 4). 
+PN1 = galaxy_tab_10
+Price1 = 400
+Rating1 = 4.1
+PN2 = PN2
+Price2 = Price2
+Rating2 = Rating2
+Yes (0.00s cpu, solution 1, maybe more)
+PN1 = galaxy_tab_10
+Price1 = 400
+Rating1 = 4.1
+PN2 = PN2
+Price2 = Price2
+Rating2 = Rating2
+Yes (0.02s cpu, solution 2, maybe more)
+PN1 = galaxy_tab_10
+Price1 = 400
+Rating1 = 4.1
+PN2 = PN2
+Price2 = Price2
+Rating2 = Rating2
+Yes (0.02s cpu, solution 3, maybe more)
+No (0.02s cpu)
