@@ -49,7 +49,7 @@ inStock(dell_xps, square_one_computer_shack, 1).
 inStock(surfacebook, union_computer_shack, 10).
 inStock(surfacebook, eaton_centre_computer_shack, 5).
 
-inStock(samsung_tv, montreal_computer_shack, 10).
+inStock(samsung_tv, montreal_computer_shack, 80).
 
 inStock(three_ft_hdmi_cable, montreal_computer_shack, 20).
 inStock(three_ft_hdmi_cable, square_one_computer_shack, 2).
@@ -58,8 +58,8 @@ inStock(hdmi_cord1, eaton_centre_computer_shack, 3).
 inStock(hdmi_cord2, eaton_centre_computer_shack, 3).
 
 inStock(galaxy_tab_10, eaton_centre_computer_shack, 5).
-inStock(galaxy_tab_10, brampton_computer_shack, 10).
 inStock(galaxy_tab_10, montreal_computer_shack, 8).
+inStock(galaxy_tab_10, brampton_computer_shack, 10).
 
 inStock(ipad_pro, eaton_centre_computer_shack, 20).
 inStock(ipad_pro, square_one_computer_shack, 7).
@@ -113,31 +113,47 @@ canShip(apple_pro_display, mississauga).
 %%%%% LEXICON
 % Add the lexicon to this section
 
+% ------------------------------------
+% ----------- ARTICLES -----------
+% ------------------------------------
 article(a).
 article(an).
 article(any).
 article(the).
 
+
+% ------------------------------------
+% ----------- COMMON NOUNS -----------
+% ------------------------------------
 common_noun(laptop, P) :- product(P, _, laptop, _, _).
 common_noun(tablet, P) :- product(P, _, tablet, _, _).
-common_noun(rating, R) :- product(_, _, _, _, R).
-common_noun(price, P) :- product(_, _, _, P, _).
-common_noun(stock, C) :- inStock(_, _, C).
 common_noun(hdmi_cable, P) :- product(P, _, hdmi_cable, _, _).
 common_noun(hdmi_cord, P) :- product(P, _, hdmi_cord, _, _).
 common_noun(monitor,  P) :- product(P, _, monitor, _, _).
 common_noun(tv, P) :- product(P, _, tv, _, _).
 common_noun(cable, P) :- product(P, _, cable, _, _).
+
+common_noun(rating, R) :- product(_, _, _, _, R).
+common_noun(price, P) :- product(_, _, _, P, _).
+common_noun(cost, P) :- product(_, _, _, P, _).
+common_noun(stock, C) :- inStock(_, _, C).
+
 common_noun(city, C) :- location(_, C).
 common_noun(city, C) :- canShip(_, C).
 common_noun(store, S) :- inStock(_, S, _).
 common_noun(store, S) :- location(S, _).
 
+
+% ------------------------------------
+% ----------- PREPOSITIONS -----------
+% ------------------------------------
 preposition(with, Store, P) :- inStock(P, Store, _).
+preposition(with, P, Rating) :- product(P, _, _, _, Rating).
 
 preposition(that_can_ship_to, P, City) :- canShip(P, City).
 
 preposition(of, R, P) :- product(P,_,_,_,R).
+preposition(of, P, Price) :- product(P,_,_,Price,_).
 preposition(of, Count, P) :- inStock(P,_,Count).
 
 preposition(in, P, Store) :- inStock(P,Store,_).
@@ -151,103 +167,38 @@ preposition(at, Count, Store) :- inStock(_, Store, Count).
 preposition(at, P, City) :- inStock(P,Store,_), location(Store,City).
 
 
-proper_noun(rating) :- product(_, _, _, _, R). 
-proper_noun(stock) :- inStock(_, _, C).
-
-proper_noun(brampton) :- canShip(_, brampton).
-proper_noun(brampton) :- location(_, brampton).
-
-proper_noun(mississauga) :- canShip(_, mississauga).
-proper_noun(mississauga) :- location(_, mississauga).
-
-proper_noun(montreal) :- canShip(_, montreal).
-proper_noun(montreal) :- location(_, montreal).
-
-proper_noun(toronto) :- canShip(_, toronto).
-proper_noun(toronto) :- location(_, toronto).
-
-proper_noun(microsoft) :- product(_, microsoft, _, _, _).
-proper_noun(samsung) :- product(_, samsung, _, _, _).
-proper_noun(dell) :- product(_, dell, _, _, _).
-proper_noun(apple) :- product(_, apple, _, _, _).
-proper_noun(rocketfish) :- product(_, rocketfish, _, _, _).
-
-proper_noun(square_one_computer_shack) :- location(square_one_computer_shack, _).
-proper_noun(square_one_computer_shack) :- inStock(_, square_one_computer_shack, _).
-
-proper_noun(eaton_centre_computer_shack) :- location(eaton_centre_computer_shack, _).
-proper_noun(eaton_centre_computer_shack) :- inStock(_, eaton_centre_computer_shack, _).
-
-proper_noun(montreal_computer_shack) :- location(montreal_computer_shack, _).
-proper_noun(montreal_computer_shack) :- inStock(_, montreal_computer_shack, _).
-
-proper_noun(heartland_computer_shack) :- location(heartland_computer_shack, _).
-proper_noun(heartland_computer_shack) :- inStock(_, heartland_computer_shack, _).
-
-proper_noun(union_computer_shack) :- location(union_computer_shack, _).
-proper_noun(union_computer_shack) :- inStock(_, union_computer_shack, _).
-
-proper_noun(brampton_computer_shack) :- location(brampton_computer_shack, _).
-proper_noun(brampton_computer_shack) :- inStock(_, brampton_computer_shack, _).
-
-proper_noun(three_ft_hdmi_cable) :- inStock(three_ft_hdmi_cable, _, _).
-proper_noun(three_ft_hdmi_cable) :- canShip(three_ft_hdmi_cable, _).
-proper_noun(three_ft_hdmi_cable) :- product(three_ft_hdmi_cable, _, _, _, _).
-
-proper_noun(galaxy_tab_10) :- inStock(galaxy_tab_10, _, _).
-proper_noun(galaxy_tab_10) :- canShip(galaxy_tab_10, _).
-proper_noun(galaxy_tab_10) :- product(galaxy_tab_10, _, _, _, _).
-
-proper_noun(macbook_pro) :- inStock(macbook_pro, _, _).
-proper_noun(macbook_pro) :- canShip(macbook_pro, _).
-proper_noun(macbook_pro) :- product(macbook_pro, _, _, _, _).
-
-proper_noun(dell_xps) :- inStock(dell_xps, _, _).
-proper_noun(dell_xps) :- canShip(dell_xps, _).
-proper_noun(dell_xps) :- product(dell_xps, _, _, _, _).
-
-proper_noun(surfacebook) :- inStock(surfacebook, _, _).
-proper_noun(surfacebook) :- canShip(surfacebook, _).
-proper_noun(surfacebook) :- product(surfacebook, _, _, _, _).
-
-proper_noun(samsung_tv) :- inStock(samsung_tv, _, _).
-proper_noun(samsung_tv) :- canShip(samsung_tv, _).
-proper_noun(samsung_tv) :- product(samsung_tv, _, _, _, _).
-
-proper_noun(dell_monitor) :- inStock(dell_monitor, _, _).
-proper_noun(dell_monitor) :- canShip(dell_monitor, _).
-proper_noun(dell_monitor) :- product(dell_monitor, _, _, _, _).
-
-proper_noun(samsung_monitor) :- inStock(samsung_monitor, _, _).
-proper_noun(samsung_monitor) :- canShip(samsung_monitor, _).
-proper_noun(samsung_monitor) :- product(samsung_monitor, _, _, _, _).
-
-proper_noun(apple_pro_display) :- inStock(apple_pro_display, _, _).
-proper_noun(apple_pro_display) :- canShip(apple_pro_display, _).
-proper_noun(apple_pro_display) :- product(apple_pro_display, _, _, _, _).
-
-proper_noun(ipad_pro) :- inStock(ipad_pro, _, _).
-proper_noun(ipad_pro) :- canShip(ipad_pro, _).
-proper_noun(ipad_pro) :- product(ipad_pro, _, _, _, _).
-
-proper_noun(amazon_tablet) :- inStock(amazon_tablet, _, _).
-proper_noun(amazon_tablet) :- canShip(amazon_tablet, _).
-proper_noun(amazon_tablet) :- product(amazon_tablet, _, _, _, _).
+% ------------------------------------
+% ----------- PROPER NOUNS -----------
+% ------------------------------------
+proper_noun(N) :- product(N,_,_,_,_).
+proper_noun(N) :- product(_,N,_,_,_).
+proper_noun(N) :- product(_,_,_,N,_).
+proper_noun(N) :- product(_,_,_,_,N).
+proper_noun(N) :- location(N,_).
+proper_noun(N) :- location(_,N).
+proper_noun(N) :- canShip(_,N).
 
 
-adjective(expensive, P) :- product(P, _, Type, Price1, _), not (product(P2, _, Type, Price2, _), P = P2, Price is Price1*2, Price < Price2).
-adjective(cheapest, P) :- product(P, _, Type, Price1, _), not (product(P2, _, Type, Price2, _), Price2 < Price1).
-
+% ------------------------------------
+% ----------- ADJECTIVES -----------
+% ------------------------------------
 adjective(rated, P) :- product(P, _, _, _, R).
 adjective(highly_rated, P) :- product(P, _, _, _, R), R >= 4.
-adjective(medium_rated, P) :- product(P, _, _, _, R), R > 2, R < 4.
-adjective(lowly_rated, P) :- product(P, _, _, _, R), R =< 2.
+adjective(medium_rated, P) :- product(P, _, _, _, R), R >= 2.5, R < 4.
+adjective(lowly_rated, P) :- product(P, _, _, _, R), R < 2.5.
 
 adjective(microsoft, M) :- product(M, microsoft, _, _, _).
 adjective(samsung, M) :- product(M, samsung, _, _, _).
 adjective(dell, M) :- product(M, dell, _, _, _).
 adjective(apple, M) :- product(M, apple, _, _, _).
 adjective(rocketfish, M) :- product(M, rocketfish, _, _, _).
+
+adjective(expensive, P) :- product(P, _, Type, Price1, _), not (product(P2, _, Type, Price2, _), P = P2, Price is Price1*2, Price < Price2).
+
+adjective(cheapest, P) :- product(P, _, Type, Price1, _), not (product(P2, _, Type, Price2, _), P = P2, Price2 < Price1).
+
+% Added this extra
+adjective(cheapest, Brand, Product) :- product(Product, Brand, Type, Price1, _), not (product(_, Brand, Type, Price2, _), Price2 < Price1).
 
 %%%%% EXTRA LANGUAGE FEATURES
 % Put the extra language features for question 4 in this section
@@ -267,6 +218,9 @@ np([Art|Rest], What) :- article(Art), np2(Rest, What).
    or with a common noun. */
 
 np2([Adj|Rest],What) :- adjective(Adj,What), np2(Rest, What).
+
+% Added this
+np2([Adj, Ref|Rest], What) :- adjective(Adj, Ref, What), np2(Rest, What).
 np2([Noun|Rest], What) :- common_noun(Noun, What), mods(Rest,What).
 
 
