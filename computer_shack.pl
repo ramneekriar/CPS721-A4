@@ -166,6 +166,8 @@ preposition(at, P, Store) :- inStock(P,Store,_).
 preposition(at, Count, Store) :- inStock(_, Store, Count).
 preposition(at, P, City) :- inStock(P,Store,_), location(Store,City).
 
+preposition(between, LowerBound, UpperBound, P, P) :- product(P,_,_,Price,_), Price>=LowerBound, P=<UpperBound.
+preposition(between, LowerBound, UpperBound, P, P) :- product(P,_,_,_,R), R>=LowerBound, P=<UpperBound.
 
 % ------------------------------------
 % ----------- PROPER NOUNS -----------
