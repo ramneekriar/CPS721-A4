@@ -49,5 +49,8 @@ QUERY 9: what([a,highly_rated, tv ], P).
 % What is the rating of a samsung tablet?
 QUERY 10: what([the, rating, of, a, samsung, tablet], R).
 
+% What is the product with a price of 2000?
+QUERY 11: what([the, product, with, a, price, of, 2000], R).
+
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW

@@ -135,6 +135,7 @@ common_noun(monitor,  P) :- product(P, _, monitor, _, _).
 common_noun(tv, P) :- product(P, _, tv, _, _).
 common_noun(cable, P) :- product(P, _, cable, _, _).
 
+common_noun(product, P) :- product(P, _, _, _, _).
 common_noun(rating, R) :- product(_, _, _, _, R).
 common_noun(price, P) :- product(_, _, _, P, _).
 common_noun(cost, P) :- product(_, _, _, P, _).
@@ -155,8 +156,8 @@ preposition(with, P, Price) :- product(P, _, _, Price, _).
 
 preposition(that_can_ship_to, P, City) :- canShip(P, City).
 
-preposition(of, R, P) :- product(P,_,_,_,R).
 preposition(of, Price, P) :- product(P,_,_,Price,_).
+preposition(of, P, Price) :- product(P,_,_,Price,_).
 preposition(of, P, Price) :- product(P,_,_,Price,_).
 preposition(of, Count, P) :- inStock(P,_,Count).
 
@@ -186,7 +187,7 @@ proper_noun(N) :- canShip(_,N).
 
 
 % ------------------------------------
-% ----------- ADJECTIVES -------------
+% ----------- ADJECTIVES -----------
 % ------------------------------------
 adjective(rated, P) :- product(P, _, _, _, R).
 adjective(highly_rated, P) :- product(P, _, _, _, R), R >= 4.
@@ -201,7 +202,7 @@ adjective(rocketfish, M) :- product(M, rocketfish, _, _, _).
 
 adjective(expensive, P) :- product(P, _, Type, Price1, _), not (product(P2, _, Type, Price2, _), P = P2, Price is Price1*2, Price < Price2).
 
-adjective(cheapest, P) :- product(P, _, Type, Price1, _), not (product(P2, _, Type, Price2, _), Price2 < Price1).
+adjective(cheapest, P) :- product(P, _, Type, Price1, _), not (product(P2, _, Type, Price2, _), P = P2, Price2 < Price1).
 
 % Added this extra
 adjective(cheapest, Brand, Product) :- product(Product, Brand, Type, Price1, _), not (product(_, Brand, Type, Price2, _), Price2 < Price1).
