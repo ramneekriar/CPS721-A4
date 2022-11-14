@@ -58,6 +58,7 @@ inStock(hdmi_cord1, eaton_centre_computer_shack, 3).
 inStock(hdmi_cord2, eaton_centre_computer_shack, 3).
 
 inStock(galaxy_tab_10, eaton_centre_computer_shack, 5).
+inStock(galaxy_tab_10, square_one_computer_shack, 40).
 inStock(galaxy_tab_10, montreal_computer_shack, 8).
 inStock(galaxy_tab_10, brampton_computer_shack, 10).
 
@@ -93,6 +94,7 @@ canShip(macbook_pro, toronto).
 canShip(macbook_pro, mississauga).
 
 canShip(dell_xps, brampton).
+canShip(dell_xps, mississauga).
 
 canShip(three_ft_hdmi_cable, montreal).
 canShip(three_ft_hdmi_cable, brampton).
