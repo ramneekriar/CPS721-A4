@@ -158,6 +158,7 @@ preposition(that_can_ship_to, P, City) :- canShip(P, City).
 
 preposition(of, R, P) :- product(P,_,_,_,R).
 preposition(of, Price, P) :- product(P,_,_,Price,_).
+preposition(of, P, Price) :- product(P,_,_,Price,_).
 preposition(of, Count, P) :- inStock(P,_,Count).
 
 preposition(in, P, Store) :- inStock(P,Store,_).
