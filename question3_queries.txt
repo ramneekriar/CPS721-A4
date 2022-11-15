@@ -52,5 +52,8 @@ QUERY 10: what([the, rating, of, a, samsung, tablet], R).
 % What is the product with a price of 2000?
 QUERY 11: what([the, product, with, a, price, of, 2000], R).
 
+% What is the laptop with a price of 1200?
+QUERY 12: what([the, laptop, with, a, price, of, 1200], R).
+
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW

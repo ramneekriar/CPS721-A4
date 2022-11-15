@@ -415,52 +415,36 @@ No (0.02s cpu)
 QUERY 10: what([the, rating, of, a, samsung, tablet], R).
 R = 4.1
 Yes (0.00s cpu, solution 1, maybe more)
+R = 4.1
+Yes (0.02s cpu, solution 2, maybe more)
+R = 5
+Yes (0.02s cpu, solution 3, maybe more)
+No (0.03s cpu)
 
 % What is the product with a price of 2000?
 QUERY 11: what([the, product, with, a, price, of, 2000], R).
 R = macbook_pro
 Yes (0.00s cpu, solution 1, maybe more)
 R = macbook_pro
-Yes (0.09s cpu, solution 2, maybe more)
+Yes (0.04s cpu, solution 2, maybe more)
 R = macbook_pro
-Yes (0.10s cpu, solution 3, maybe more)
+Yes (0.04s cpu, solution 3, maybe more)
 R = macbook_pro
-Yes (0.10s cpu, solution 4, maybe more)
-R = macbook_pro
-Yes (0.11s cpu, solution 5, maybe more)
-R = macbook_pro
-Yes (0.11s cpu, solution 6, maybe more)
-R = macbook_pro
-Yes (0.12s cpu, solution 7, maybe more)
-R = macbook_pro
-Yes (0.13s cpu, solution 8, maybe more)
+Yes (0.05s cpu, solution 4, maybe more)
 R = apple_pro_display
-Yes (0.13s cpu, solution 9, maybe more)
+Yes (0.05s cpu, solution 5, maybe more)
 R = apple_pro_display
-Yes (0.14s cpu, solution 10, maybe more)
+Yes (0.06s cpu, solution 6, maybe more)
 R = apple_pro_display
-Yes (0.15s cpu, solution 11, maybe more)
+Yes (0.06s cpu, solution 7, maybe more)
 R = apple_pro_display
-Yes (0.16s cpu, solution 12, maybe more)
-R = apple_pro_display
-Yes (0.16s cpu, solution 13, maybe more)
-R = apple_pro_display
-Yes (0.17s cpu, solution 14, maybe more)
-R = apple_pro_display
-Yes (0.17s cpu, solution 15, maybe more)
-R = apple_pro_display
-Yes (0.18s cpu, solution 16, maybe more)
-No (0.19s cpu)
+Yes (0.07s cpu, solution 8, maybe more)
+No (0.08s cpu)
 
 % What is the laptop with a price of 1200?
 QUERY 12: what([the, laptop, with, a, price, of, 1200], R).
-?- what([the, laptop, with, a, price, of, 1200], R).
 R = surfacebook
 Yes (0.00s cpu, solution 1, maybe more)
 R = surfacebook
-Yes (0.03s cpu, solution 2, maybe more)
-R = surfacebook
-Yes (0.04s cpu, solution 3, maybe more)
-R = surfacebook
-Yes (0.04s cpu, solution 4, maybe more)
-No (0.05s cpu)
+Yes (0.01s cpu, solution 2, maybe more)
+No (0.02s cpu)
